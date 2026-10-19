@@ -16,9 +16,7 @@ from docx.shared import Cm, Pt, RGBColor
 KOK = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 M = json.load(open(os.path.join(KOK, "sonuclar", "metrikler.json"), encoding="utf-8"))
 
-GITHUB = "https://github.com/elifdelal/banka-pazarlama-tahmini"
-COLAB = ("https://colab.research.google.com/github/elifdelal/banka-pazarlama-tahmini/blob/main/"
-         "Banka_Pazarlama_Tahmini.ipynb")
+COLAB = "https://colab.research.google.com/drive/1z9R_0ouIuTAbumj-rWKoCLSt-kg5eJPJ?usp=sharing"
 VERI_URL = "https://archive.ics.uci.edu/dataset/222/bank+marketing"
 
 LAC = RGBColor(0x14, 0x2B, 0x4C)
@@ -237,14 +235,9 @@ r = p.add_run("Hazırlayan: Elif DELAL  ·  TNC Group Yapay Zeka Stajı  ·  Eki
 r.font.size = Pt(10)
 p = doc.add_paragraph()
 p.alignment = WD_ALIGN_PARAGRAPH.CENTER
-p.paragraph_format.space_after = Pt(1)
-r = p.add_run("Kod (GitHub): "); r.bold = True; r.font.size = Pt(9.5)
-baglanti(p, GITHUB)
-p = doc.add_paragraph()
-p.alignment = WD_ALIGN_PARAGRAPH.CENTER
 p.paragraph_format.space_after = Pt(6)
-r = p.add_run("Colab not defteri: "); r.bold = True; r.font.size = Pt(9.5)
-baglanti(p, COLAB, "Banka_Pazarlama_Tahmini.ipynb (Colab’da aç)")
+r = p.add_run("Kod (Colab not defteri): "); r.bold = True; r.font.size = Pt(9.5)
+baglanti(p, COLAB)
 
 # Özet kutusu
 ozet = doc.add_table(rows=1, cols=1)
@@ -480,7 +473,7 @@ for kaynak in [
     "Decision Support Systems, 62, 22–31. https://doi.org/10.1016/j.dss.2014.03.001",
     f"UCI Machine Learning Repository – Bank Marketing veri seti: {VERI_URL}",
     "Pedregosa, F. vd. (2011). Scikit-learn: Machine Learning in Python. JMLR, 12, 2825–2830.",
-    f"Proje kodu ve not defteri: {GITHUB}",
+    f"Proje kodu (Colab not defteri): {COLAB}",
 ]:
     p = doc.add_paragraph(style="List Number 2")
     p.paragraph_format.space_after = Pt(1)
